@@ -53,11 +53,11 @@ def main():
     )
 
     # Display the title at the top
-    st.markdown('<div class="title-container">Meditrain AI</div>', unsafe_allow_html=True)
+    st.markdown('<div class="title-container">MEDITRAIN AI</div>', unsafe_allow_html=True)
 
     # Display the logo below the title
     st.markdown('<div class="logo-container">', unsafe_allow_html=True)
-    logo = resize_image(logo_url, 400, 200)  # Adjusted size for the logo
+    logo = resize_image(logo_url, 200, 200)  # Adjusted size for the logo
     if logo:
         st.image(logo, use_container_width=False, output_format="PNG")
     st.markdown('</div>', unsafe_allow_html=True)
