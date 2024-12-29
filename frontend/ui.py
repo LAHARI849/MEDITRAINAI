@@ -25,7 +25,7 @@ bot_avatar_url = "https://raw.githubusercontent.com/LAHARI849/MEDITRAINAI/refs/h
 
 # Set up the Streamlit app
 def main():
-    # Custom CSS for centering the logo and setting its size
+    # Custom CSS for positioning the logo
     st.markdown(
         """
         <style>
@@ -33,11 +33,12 @@ def main():
             display: flex;
             justify-content: center;
             align-items: center;
-            height: 100vh; /* Full page height for centering */
+            margin-top: 20px; /* Adjust top margin to move logo closer to the top */
+            margin-bottom: 30px; /* Add space between logo and content */
         }
         .logo-image {
             max-width: 100%;
-            width: 700px; /* Adjust width of the logo */
+            width: 500px; /* Adjust width of the logo */
             height: auto; /* Maintain aspect ratio */
         }
         </style>
@@ -45,9 +46,9 @@ def main():
         unsafe_allow_html=True,
     )
 
-    # Display the logo in the center of the page
+    # Display the logo at the top center of the page
     st.markdown('<div class="logo-container">', unsafe_allow_html=True)
-    logo = resize_image(logo_url, 700, 400)  # Large size for the logo
+    logo = resize_image(logo_url, 500, 250)  # Size for the logo
     if logo:
         st.image(logo, use_container_width=False, output_format="PNG", caption="Meditrain AI")
     st.markdown('</div>', unsafe_allow_html=True)
