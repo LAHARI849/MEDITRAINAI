@@ -3,6 +3,8 @@
 
 Meditrain ai is an AI-powered chatbot application designed to provide personalized and compassionate support to individuals seeking mindfulness, meditation, and wellness guidance. This repository contains the backend API (app2.py), the user interface (ui.py), and the requirements.txt for managing dependencies.
 
+# LIVE DEMO
+You can view the live version of this project here: [Live Demo](https://meditrainai-27.onrender.com)
 
 ## Features
 
