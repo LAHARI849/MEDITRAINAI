@@ -23,7 +23,8 @@ def main():
 
             try:
                 # Make the POST request to the API endpoint
-                response = requests.post("http://127.0.0.1:5000/response", json=payload)
+               response = requests.post("https://meditrainai-10.onrender.com/response", json=payload)
+
 
                 if response.status_code == 200:
                     # Parse the JSON response
