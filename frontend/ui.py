@@ -53,7 +53,7 @@ def main():
     )
 
     # Display the title at the top
-    st.markdown('<div class="title-container">MEDITRAIN AI</div>', unsafe_allow_html=True)
+    st.markdown('<div class="title-container">MEDITRAIN AI CHATBOT</div>', unsafe_allow_html=True)
 
     # Display the logo below the title
     st.markdown('<div class="logo-container">', unsafe_allow_html=True)
