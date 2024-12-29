@@ -19,18 +19,36 @@ def resize_image(url, width, height):
         return None
 
 # URLs for the logo, user avatar, and bot avatar
-logo_url = "https://github.com/LAHARI849/MEDITRAINAI/blob/main/frontend/logo.jpeg?raw=true"
-user_avatar_url = "https://github.com/LAHARI849/MEDITRAINAI/blob/7896e7c36a186c7de455a2b5ec33aaec956f2108/frontend/user.webp"
-bot_avatar_url = "https://github.com/LAHARI849/MEDITRAINAI/blob/91ace4da24dd78400fe1d773ada00b26ab5c0815/frontend/bot.web"
+logo_url = "https://raw.githubusercontent.com/your-username/your-repo/main/logo.png"
+user_avatar_url = "https://raw.githubusercontent.com/your-username/your-repo/main/user_avatar.png"
+bot_avatar_url = "https://raw.githubusercontent.com/your-username/your-repo/main/bot_avatar.png"
 
 # Set up the Streamlit app
 def main():
-    # Resize and display the logo
-    logo = resize_image(logo_url, 200, 100)  # Adjust logo size
-    if logo:
-        st.image(logo)
+    # Custom CSS to center the logo
+    st.markdown(
+        """
+        <style>
+        .logo-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-top: 20px;
+            margin-bottom: 40px;
+        }
+        </style>
+        """,
+        unsafe_allow_html=True,
+    )
 
-    # Add title and description
+    # Resize and display the logo in the center
+    logo = resize_image(logo_url, 300, 150)  # Larger dimensions for logo
+    if logo:
+        st.markdown('<div class="logo-container">', unsafe_allow_html=True)
+        st.image(logo, use_column_width=False)  # Display the logo
+        st.markdown('</div>', unsafe_allow_html=True)
+
+    # Add title and description below the logo
     st.title("Meditrain AI")
     st.markdown("**Mindful Support, Anytime, Anywhere.**")
 
@@ -94,3 +112,4 @@ def main():
 
 if __name__ == "__main__":
     main()
+
