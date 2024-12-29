@@ -21,7 +21,7 @@ def resize_image(url, width, height):
 # URLs for the logo, user avatar, and bot avatar
 logo_url = "https://github.com/LAHARI849/MEDITRAINAI/blob/main/frontend/logo.jpeg?raw=true"
 user_avatar_url = "https://github.com/LAHARI849/MEDITRAINAI/blob/7896e7c36a186c7de455a2b5ec33aaec956f2108/frontend/user.webp"
-bot_avatar_url = ""
+bot_avatar_url = "https://github.com/LAHARI849/MEDITRAINAI/blob/91ace4da24dd78400fe1d773ada00b26ab5c0815/frontend/bot.web"
 
 # Set up the Streamlit app
 def main():
