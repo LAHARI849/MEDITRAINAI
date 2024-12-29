@@ -1,12 +1,38 @@
 import streamlit as st
+from PIL import Image
 import requests
+from io import BytesIO
 
+# Function to dynamically resize images
+def resize_image(url, width, height):
+    try:
+        response = requests.get(url)
+        if response.status_code == 200:
+            image = Image.open(BytesIO(response.content))
+            resized_image = image.resize((width, height))
+            return resized_image
+        else:
+            st.error(f"Error loading image from {url}")
+            return None
+    except Exception as e:
+        st.error(f"An error occurred while loading the image: {e}")
+        return None
+
+# URLs for the logo, user avatar, and bot avatar
+logo_url = ""
+user_avatar_url = ""
+bot_avatar_url = ""
 
 # Set up the Streamlit app
 def main():
-    st.title("MEDITRAIN AI CHATBOT")
-    st.write("Mindful Support, Anytime, Anywhere.")
-    st.write("Type your question or request in the chat box below, and let Meditrain guide you to a calmer, more balanced state")
+    # Resize and display the logo
+    logo = resize_image(logo_url, 200, 100)  # Adjust logo size
+    if logo:
+        st.image(logo)
+
+    # Add title and description
+    st.title("Meditrain AI")
+    st.markdown("**Mindful Support, Anytime, Anywhere.**")
 
     # Initialize session state for storing conversation history
     if "conversation" not in st.session_state:
@@ -47,11 +73,24 @@ def main():
     # Display the conversation history
     st.write("### Conversation History")
     for chat in st.session_state["conversation"]:
-        st.write(f"**You:** {chat['user']}")
-        st.write(f"**Chatbot:** {chat['bot']}")
+        cols = st.columns([1, 9])  # Create two columns for avatars and text
 
+        # User query with avatar
+        with cols[0]:
+            user_avatar = resize_image(user_avatar_url, 50, 50)  # Resize user avatar
+            if user_avatar:
+                st.image(user_avatar, use_column_width=False)
+        with cols[1]:
+            st.markdown(f"**User:** {chat['user']}")
+
+        # Bot response with avatar
+        cols = st.columns([1, 9])  # Adjust layout for bot
+        with cols[0]:
+            bot_avatar = resize_image(bot_avatar_url, 50, 50)  # Resize bot avatar
+            if bot_avatar:
+                st.image(bot_avatar, use_column_width=False)
+        with cols[1]:
+            st.markdown(f"**Bot:** {chat['bot']}")
 
 if __name__ == "__main__":
     main()
-
-
