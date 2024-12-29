@@ -19,7 +19,7 @@ def resize_image(url, width, height):
         return None
 
 # URLs for the logo, user avatar, and bot avatar
-logo_url = ""
+logo_url = "https://github.com/LAHARI849/MEDITRAINAI/blob/main/frontend/logo.jpeg?raw=true"
 user_avatar_url = ""
 bot_avatar_url = ""
 
