@@ -57,7 +57,7 @@ def main():
 
     # Display the logo below the title
     st.markdown('<div class="logo-container">', unsafe_allow_html=True)
-    logo = resize_image(logo_url, 200, 200)  # Adjusted size for the logo
+    logo = resize_image(logo_url, 100, 100)  # Adjusted size for the logo
     if logo:
         st.image(logo, use_container_width=False, output_format="PNG")
     st.markdown('</div>', unsafe_allow_html=True)
