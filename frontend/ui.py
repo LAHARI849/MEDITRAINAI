@@ -19,26 +19,32 @@ def resize_image(url, width, height):
         return None
 
 # URLs for the logo, user avatar, and bot avatar
-logo_url = "https://github.com/LAHARI849/MEDITRAINAI/blob/main/frontend/logo.jpeg?raw=true"
-user_avatar_url = "https://raw.githubusercontent.com/LAHARI849/MEDITRAINAI/refs/heads/main/frontend/user.webp"
-bot_avatar_url = "https://raw.githubusercontent.com/LAHARI849/MEDITRAINAI/refs/heads/main/frontend/bot.webp"
+logo_url = "https://raw.githubusercontent.com/your-username/your-repo/main/logo.png"
+user_avatar_url = "https://raw.githubusercontent.com/your-username/your-repo/main/user_avatar.png"
+bot_avatar_url = "https://raw.githubusercontent.com/your-username/your-repo/main/bot_avatar.png"
 
 # Set up the Streamlit app
 def main():
-    # Custom CSS for positioning the logo
+    # Custom CSS for logo positioning and size
     st.markdown(
         """
         <style>
+        .title-container {
+            text-align: center;
+            font-size: 32px;
+            font-weight: bold;
+            margin-top: 10px;
+            margin-bottom: 10px;
+        }
         .logo-container {
             display: flex;
             justify-content: center;
             align-items: center;
-            margin-top: 20px; /* Adjust top margin to move logo closer to the top */
-            margin-bottom: 30px; /* Add space between logo and content */
+            margin-bottom: 20px; /* Reduced bottom margin */
         }
         .logo-image {
             max-width: 100%;
-            width: 500px; /* Adjust width of the logo */
+            width: 400px; /* Adjusted width */
             height: auto; /* Maintain aspect ratio */
         }
         </style>
@@ -46,15 +52,17 @@ def main():
         unsafe_allow_html=True,
     )
 
-    # Display the logo at the top center of the page
+    # Display the title at the top
+    st.markdown('<div class="title-container">Meditrain AI</div>', unsafe_allow_html=True)
+
+    # Display the logo below the title
     st.markdown('<div class="logo-container">', unsafe_allow_html=True)
-    logo = resize_image(logo_url, 500, 250)  # Size for the logo
+    logo = resize_image(logo_url, 400, 200)  # Adjusted size for the logo
     if logo:
-        st.image(logo, use_container_width=False, output_format="PNG", caption="Meditrain AI")
+        st.image(logo, use_container_width=False, output_format="PNG")
     st.markdown('</div>', unsafe_allow_html=True)
 
-    # Add title and description below the logo
-    st.title("Meditrain AI")
+    # Add subtitle or description
     st.markdown("**Mindful Support, Anytime, Anywhere.**")
 
     # Initialize session state for storing conversation history
@@ -102,7 +110,7 @@ def main():
         with cols[0]:
             user_avatar = resize_image(user_avatar_url, 50, 50)  # Resize user avatar
             if user_avatar:
-                st.image(user_avatar, use_container_width=False)  # Updated parameter
+                st.image(user_avatar, use_container_width=False)
         with cols[1]:
             st.markdown(f"**User:** {chat['user']}")
 
@@ -111,9 +119,11 @@ def main():
         with cols[0]:
             bot_avatar = resize_image(bot_avatar_url, 50, 50)  # Resize bot avatar
             if bot_avatar:
-                st.image(bot_avatar, use_container_width=False)  # Updated parameter
+                st.image(bot_avatar, use_container_width=False)
         with cols[1]:
             st.markdown(f"**Bot:** {chat['bot']}")
 
 if __name__ == "__main__":
+    main()
+
     main()
