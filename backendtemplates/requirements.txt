@@ -8,4 +8,5 @@ Flask
 langchain==0.1.16
 langchain-core
 langchain-groq
+gunicorn==20.1.0
 
