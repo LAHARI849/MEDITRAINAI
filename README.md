@@ -142,5 +142,5 @@ The project is organized into the following components:
 
 ## Screenshot
 ## CHAT INTERFACE
-![Screenshot](https://github.com/LAHARI849/MEDITRAINAI/blob/b50b8a7382a31319706ee95951f18ab08d9685c0/frontend/Screenshot%20(73).png)
+![Screenshot]()
 
